@@ -57,7 +57,8 @@ const uploadHandler = async (req, res, next) => {
       filename: encryptedFilename,
       fileType: file.mimetype,
       fileSize: fileSize,
-      encryptedFilePath : uploadDir
+      encryptedFilePath : uploadDir,
+      createdBy: req.user.id
     });
 
     await fileRecord.save();
